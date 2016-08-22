@@ -17,6 +17,10 @@ class BookTestCase(TestCase):
 
 
 class CompassTestCase(TestCase):
+    def test_correct_title_if_title_and_category(self,):
+        heading = Compass.heading(title="Title 1", category="Category 1")
+        self.assertEqual(heading, "All books like Title 1 under Category 1")
+
     def test_correct_title_if_not_title_and_category(self,):
         heading = Compass.heading(title="", category="")
         self.assertEqual(heading, "All books")
