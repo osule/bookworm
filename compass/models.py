@@ -18,8 +18,11 @@ class Category(models.Model):
                                   slug=slugify_with_date_now(title, now))
 
     @classmethod
-    def find(cls, keyword):
-        return cls.objects.filter(title=keyword)
+    def find(cls, title):
+        return cls.objects.filter(title=title)
+
+    def __str__(self):
+        return "{}".format(self.title,)
 
 
 class Book(models.Model):
@@ -32,15 +35,19 @@ class Book(models.Model):
         return cls.objects.all()
 
     @classmethod
-    def create(cls, title, category):
+    def create(cls, title, category,):
         now = datetime.now()
         return cls.objects.create(title=title,
                                   slug=slugify_with_date_now(title, now),
                                   category=category)
 
     @classmethod
-    def find(cls, keyword):
-        return cls.objects.filter(title=keyword)
+    def find(cls, title=None, category=None,):
+        if title and not category:
+            return cls.objects.filter(title=title,)
+        if category and not title:
+            return cls.objects.filter(category=category,)
+        return cls.objects.filter(title=title, category=category)
 
 
 class Compass(object):
@@ -65,3 +72,4 @@ class Compass(object):
             return "All book titles under {}".format(category)
         if not category:
             return "All book titles like {}".format(title)
+        return "All books like {} under {}".format(title, category)
