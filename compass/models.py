@@ -19,7 +19,7 @@ class Category(models.Model):
 
     @classmethod
     def find(cls, title):
-        return cls.objects.filter(title=title)
+        return cls.objects.filter(title__contains=title)
 
     def __str__(self):
         return "{}".format(self.title,)
@@ -44,10 +44,10 @@ class Book(models.Model):
     @classmethod
     def find(cls, title=None, category=None,):
         if title and not category:
-            return cls.objects.filter(title=title,)
+            return cls.objects.filter(title__contains=title,)
         if category and not title:
             return cls.objects.filter(category=category,)
-        return cls.objects.filter(title=title, category=category)
+        return cls.objects.filter(title__contains=title, category=category)
 
 
 class Compass(object):
