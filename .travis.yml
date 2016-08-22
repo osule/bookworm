@@ -7,7 +7,6 @@ env:
 install:
 - pip install -r requirements.txt
 script:
-- python manage.py collectstatic --noinput
 - python manage.py makemigrations
 - python manage.py migrate
 - python manage.py test
@@ -18,11 +17,7 @@ deploy:
   app:
     develop: staging
   run:
-    - "export DJANGO_SETTINGS_MODULE=settings"
-    - "python manage.py collectstatic --noinput"
     - "python manage.py makemigrations"
-    - "python manage.py migrate auth"
     - "python manage.py migrate"
-    - "python manage.py syncdb --noinput"
 after_deploy:
   - "heroku ps:scale web=1 --app b00kworm"
