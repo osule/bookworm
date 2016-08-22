@@ -7,5 +7,7 @@
     {% block content %}
         {% include 'search_form.html' with categories=categories %}
         <h2>{{ book.title }}</h2>
-        <p>{{ book.category.title }}</p>
+        <p>
+            <a href="{% url 'category_detail' book.category.slug %}">{{ book.category.title }}</a>
+        </p>
     {% endblock %}
