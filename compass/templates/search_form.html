@@ -1,0 +1,12 @@
+    <form action="/search" method="POST">
+        {% csrf_token %}
+        <label for="title">Book title: </label>
+        <input name="title" type="text">
+        <select name="category">
+            <option value="">Select a category:</option>
+            {% for category in categories %}
+                <option>{{ category.title }}</option>
+            {% endfor %}
+        </select>
+        <button>Search</button>
+    </form>
