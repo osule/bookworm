@@ -10,7 +10,7 @@ class CompassTest(TestCase):
 
     def test_can_view_search_page(self):
         response = self.client.get('/')
-        self.assertContains(response, '<input name="title" type="text">')
+        self.assertContains(response, '<input name="title" type="text"')
 
     def test_can_view_categories_page(self):
         response = self.client.get('/categories')
