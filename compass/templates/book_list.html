@@ -1,0 +1,7 @@
+<ul>
+    {% for book in books %}
+        <li><a href="{% url 'book_detail' book_slug=book.slug %}">{{ book.title }}</a></li>
+    {% empty %}
+       <li>Sorry, no books in this list.</li>
+    {% endfor %}
+</ul>

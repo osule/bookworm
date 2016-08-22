@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+    {% block title %}
+        Bookworm
+    {% endblock %}
+
+    {% block content %}
+        {% include 'search_form.html' with categories=categories %}
+    {% endblock %}
