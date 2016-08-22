@@ -1,12 +1,13 @@
-    <form action="/search" method="POST">
+    <form action="/search" class="form-inline" method="POST">
         {% csrf_token %}
         <label for="title">Book title: </label>
-        <input name="title" type="text">
-        <select name="category">
+        <input name="title" type="text" class="form-control">
+        <select name="category" class="form-control">
             <option value="">Select a category:</option>
             {% for category in categories %}
                 <option>{{ category.title }}</option>
             {% endfor %}
         </select>
-        <button>Search</button>
+        <button class="btn">Search</button>
     </form>
+    <hr/>
