@@ -1,14 +1,14 @@
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^categories$', views.categories, name='category_master'),
-    url(r'^categories/(?P<category_slug>[\w-]+)$',
+    path('', views.index, name='index'),
+    path('categories/', views.categories, name='category_master'),
+    path('categories/<slug:category_slug>/',
         views.category, name='category_detail'),
-    url(r'^books/(?P<book_slug>[\w-]+)$',
+    path('books/(<slug:book_slug>/',
         views.book, name='book_detail'),
-    url(r'^search$',
+    path('search/',
         views.search, name='compass_find')
 ]

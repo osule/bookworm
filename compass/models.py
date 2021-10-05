@@ -28,7 +28,7 @@ class Category(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255)
     slug = models.CharField(max_length=255)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
 
     @classmethod
     def all(cls):

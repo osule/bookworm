@@ -1,1 +1,2 @@
 SECRET_KEY=secret
+ALLOWED_HOSTS=0.0.0.0
