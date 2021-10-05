@@ -10,6 +10,7 @@ jobs:
   test:
     env:
       DJANGO_SETTINGS_MODULE: 'settings'
+      SECRET_KEY: 'secret'
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
