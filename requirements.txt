@@ -2,7 +2,7 @@ coreapi==1.32.0
 coverage==4.0.3
 coveralls==1.1
 decorator==4.0.6
-dj-database-url==0.3.0
+dj-database-url==1.2.0
 Django==2.2.24
 django-axes==5.25.0
 django-postgrespool==0.3.0
